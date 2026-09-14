@@ -4,9 +4,11 @@ A sample SAP application that tracks cold-chain temperature excursions and evalu
 
 Built using modern ABAP, RAP, CDS, ABAP Unit, and Clean Core principles on SAP BTP ABAP Environment.
 
-![Platform](httpsds.io/badge/Platform-SAP%20BTP%20ABAP%20Environment-0A6E4F
-![Model](https://img.shields.io/badge/Model-ABAP%0(RAP-0A6E4F)
-![Language](https://img.shields.io/badge/Language-ABAP%20for%20Cloud%20Development-0A Core](https://img.shields.io/badge/Clean%20Core-Compliant-2E7D32hields.io/badge/IDE-Eclipse%20ADT-blue
+![Platform](https://img.shields.io/badge/Platform-SAP%20BTP%20ABAP%20Environment-0A6E4F)
+![Model](https://img.shields.io/badge/Model-ABAP%20Cloud%20(RAP)-0A6E4F)
+![Language](https://img.shields.io/badge/Language-ABAP%20for%20Cloud%20Development-0A6E4F)
+![Clean Core](https://img.shields.io/badge/Clean%20Core-Compliant-2E7D32)
+![Tooling](https://img.shields.io/badge/IDE-Eclipse%20ADT-blue)
 
 ---
 
