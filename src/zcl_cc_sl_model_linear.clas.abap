@@ -1,7 +1,9 @@
+"! <p class="shorttext synchronized">
 "! Linear shelf-life model
+"! </p>
 "!
-"! Rule:
-"! 100 degree-minutes = 1 day lost
+"! This implementation applies a simple linear rule
+"! 100 degree-minutes = 1 day of shelf-life reduction.
 CLASS zcl_cc_sl_model_linear DEFINITION
   PUBLIC FINAL
   CREATE PUBLIC.
@@ -9,13 +11,14 @@ CLASS zcl_cc_sl_model_linear DEFINITION
   PUBLIC SECTION.
     INTERFACES zif_cc_shelflife_model.
 
-    CONSTANTS gc_degree_minute_per_day TYPE decfloat34 VALUE 100.
+    "! Degree-minute equivalent to one day of shelf-life loss
+    CONSTANTS gc_degree_minutes_per_day TYPE decfloat34 VALUE 100.
 ENDCLASS.
 
 
 CLASS zcl_cc_sl_model_linear IMPLEMENTATION.
   METHOD zif_cc_shelflife_model~calculate_expiry.
-    FINAL(days_lost) = floor( iv_degree_minutes / gc_degree_minute_per_day ).
+    FINAL(days_lost) = floor( iv_degree_minutes / gc_degree_minutes_per_day ).
 
     rv_new_shelf_life_days = nmax( val1 = iv_original_shelf_life_days - days_lost
                                    val2 = 0 ).
