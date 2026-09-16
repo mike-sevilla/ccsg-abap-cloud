@@ -1,3 +1,6 @@
+"! <p class="shorttext synchronized">
+"! Cold-chain application exception class
+"! </p>
 CLASS zcx_cc_error DEFINITION
   PUBLIC
   INHERITING FROM cx_static_check FINAL
@@ -17,8 +20,14 @@ CLASS zcx_cc_error DEFINITION
         attr4 TYPE scx_attrname VALUE '',
       END OF no_rule.
 
+    "! Exception message text
     DATA mv_text TYPE string READ-ONLY.
 
+    "! <p class="shorttext synchronized">Creates a new application exception</p>
+    "!
+    "! @parameter textid   | T100 message identifier
+    "! @parameter previous | Previous Exception
+    "! @parameter text     | Free-text exception message
     METHODS constructor
       IMPORTING textid    LIKE if_t100_message=>t100key OPTIONAL
                 !previous LIKE previous                 OPTIONAL
