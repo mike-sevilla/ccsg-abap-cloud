@@ -8,6 +8,7 @@ CLASS zcl_cc_excursion_detector DEFINITION
              zone_id    TYPE c LENGTH 8,
              reading_ts TYPE utclong,
              temp_c     TYPE decfloat34,
+             sensor_id  TYPE c LENGTH 12,
            END OF ty_reading,
            "! Collection of temperature readings for {@link .METH:detect}
            tt_readings TYPE STANDARD TABLE OF ty_reading WITH EMPTY KEY.
