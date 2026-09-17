@@ -56,23 +56,24 @@ CLASS zcl_cc_import IMPLEMENTATION.
 
       IF temperature_text IS INITIAL.
         RAISE EXCEPTION NEW zcx_cc_error( text = |Invalid CSV row { sy-tabix }: temperature is missing.| ).
-
-        TRY.
-            FINAL(timestamp) = CONV utclong( timestamp_text ).
-            FINAL(temperature_c) = CONV decfloat34( temperature_text ).
-
-            APPEND VALUE #( zone_id    = zone_id_text
-                            reading_ts = timestamp
-                            temp_c     = temperature_c
-                            sensor_id  = sensor_id_text )
-                   TO rt_readings.
-
-          CATCH cx_sy_conversion_no_date_time.
-            RAISE EXCEPTION NEW zcx_cc_error( text = |Invalid CSV row { sy-tabix }: timestamp format is invalid.| ).
-          CATCH cx_sy_conversion_no_number.
-            RAISE EXCEPTION NEW zcx_cc_error( text = |Invalid CSV row { sy-tabix }: temperature is not numeric.| ).
-        ENDTRY.
       ENDIF.
+
+      TRY.
+          FINAL(timestamp) = CONV utclong( timestamp_text ).
+          FINAL(temperature_c) = CONV decfloat34( temperature_text ).
+
+          APPEND VALUE #( zone_id    = zone_id_text
+                          reading_ts = timestamp
+                          temp_c     = temperature_c
+                          sensor_id  = sensor_id_text )
+                 TO rt_readings.
+
+        CATCH cx_sy_conversion_no_date_time.
+          RAISE EXCEPTION NEW zcx_cc_error( text = |Invalid CSV row { sy-tabix }: timestamp format is invalid.| ).
+        CATCH cx_sy_conversion_no_number.
+          RAISE EXCEPTION NEW zcx_cc_error( text = |Invalid CSV row { sy-tabix }: temperature is not numeric.| ).
+      ENDTRY.
+
     ENDLOOP.
   ENDMETHOD.
 ENDCLASS.
