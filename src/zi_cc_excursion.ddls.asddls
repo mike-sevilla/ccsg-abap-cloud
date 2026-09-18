@@ -1,8 +1,7 @@
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Cold-Chain Excursion Interface View'
-@Metadata.ignorePropagatedAnnotations: true
-define view entity ZI_CC_EXCURSION
+define root view entity ZI_CC_EXCURSION
   as select from zdt_cc_exc_hdr
 {
   key exc_id         as ExcursionID,
@@ -14,8 +13,12 @@ define view entity ZI_CC_EXCURSION
       degree_minutes as DegreeMinutes,
       exc_status     as Status,
       disposition    as Disposition,
+      @Semantics.user.createdBy: true
       created_by     as CreatedBy,
+      @Semantics.systemDateTime.createdAt: true
       created_at     as CreatedAt,
+      @Semantics.user.lastChangedBy: true
       changed_by     as ChangedBy,
+      @Semantics.systemDateTime.lastChangedAt: true
       changed_at     as ChangedAt
 }
