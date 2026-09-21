@@ -7,7 +7,7 @@ define table zdt_cc_exc_batch {
 
   key client   : abap.clnt not null;
   key exc_id   : abap.char(10) not null;
-  item_id      : abap.char(10) not null;
+  key item_id  : abap.char(10) not null;
   material     : abap.char(40);
   batch        : abap.char(10);
   quantity_uom : abap.unit(3);
