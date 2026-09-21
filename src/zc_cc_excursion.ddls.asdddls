@@ -1,0 +1,26 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Cold-Chain Excursion'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity ZC_CC_EXCURSION
+  as select from ZI_CC_EXCURSION
+{
+  key ExcursionID,
+
+      ZoneId,
+      Plant,
+      StartTimestamp,
+      EndTimestamp,
+      MaxTemperature,
+      DegreeMinutes,
+      Status,
+      Disposition,
+
+      CreatedBy,
+      CreatedAt,
+      ChangedBy,
+      ChangedAt,
+
+      /* Associations */
+      _Zone
+}
