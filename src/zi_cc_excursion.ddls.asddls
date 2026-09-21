@@ -4,7 +4,7 @@
 define root view entity ZI_CC_EXCURSION
   as select from zdt_cc_exc_hdr
 
-  association [1..1] to zdt_cc_zone as _Zone on $projection.ZoneId = _Zone.zone_id
+  association [1..1] to ZI_CC_ZONE as _Zone on $projection.ZoneId = _Zone.ZoneId
 {
   key exc_id         as ExcursionID,
       zone_id        as ZoneId,
