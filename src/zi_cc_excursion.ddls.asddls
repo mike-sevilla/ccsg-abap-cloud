@@ -4,7 +4,9 @@
 define root view entity ZI_CC_EXCURSION
   as select from zdt_cc_exc_hdr
 
-  association [1..1] to ZI_CC_ZONE as _Zone on $projection.ZoneId = _Zone.ZoneId
+  association [1..1] to ZI_CC_ZONE      as _Zone  on $projection.ZoneId = _Zone.ZoneId
+
+  association [0..*] to zi_cc_exc_batch as _Batch on $projection.ExcursionID = _Batch.ExcursionId
 {
   key exc_id         as ExcursionID,
       zone_id        as ZoneId,
@@ -24,5 +26,6 @@ define root view entity ZI_CC_EXCURSION
       @Semantics.systemDateTime.lastChangedAt: true
       changed_at     as ChangedAt,
 
-      _Zone
+      _Zone,
+      _Batch
 }
