@@ -8,9 +8,10 @@ define view entity ZI_CC_TEMP_TREND
   as select from zdt_cc_templog
 
 {
-  key reading_ts,
-      zone_id,
-      temp_c
+  key reading_ts as ReadingTimestamp,
+      zone_id    as ZoneId,
+      sensor_id  as SensorId,
+      temp_c     as TemperatureC
 }
 
 where
