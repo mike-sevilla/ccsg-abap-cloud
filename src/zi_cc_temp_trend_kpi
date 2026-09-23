@@ -1,0 +1,24 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Temperature Trend KPI data'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity zi_cc_temp_trend_kpi
+  with parameters
+    p_zone : abap.char( 8 )
+  as select from zdt_cc_templog
+{
+
+  zone_id,
+
+  count(*)                        as ReadingCount,
+  avg( temp_c as abap.dec(15,2) ) as AveTemperature,
+  max( temp_c )                   as MaxTemperature,
+  min(temp_c)                     as MinTemperature
+
+}
+
+where
+  zone_id = $parameters.p_zone
+
+group by
+  zone_id
