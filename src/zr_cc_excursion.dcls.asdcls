@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access Control for Excursion View'
+@MappingRole: true
+define role ZR_CC_EXCURSION {
+  grant
+    select
+      on
+        ZI_CC_EXCURSION
+          where
+            Plant = '1000';
+            
+}
