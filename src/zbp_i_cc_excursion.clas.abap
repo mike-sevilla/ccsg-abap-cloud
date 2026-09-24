@@ -1,0 +1,6 @@
+CLASS zbp_i_cc_excursion DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_cc_excursion.
+ENDCLASS.
+
+
+CLASS zbp_i_cc_excursion IMPLEMENTATION.
+ENDCLASS.
