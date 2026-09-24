@@ -1,0 +1,30 @@
+managed implementation in class zbp_i_cc_excursion unique;
+
+strict ( 2 );
+
+define behavior for ZI_CC_EXCURSION
+persistent table zdt_cc_exc_hdr
+lock master
+authorization master ( instance )
+{
+
+  mapping for zdt_cc_exc_hdr
+  {
+    ExcursionID    = exc_id;
+    ZoneId         = zone_id;
+    Plant          = plant;
+    StartTimestamp = start_ts;
+    EndTimestamp   = end_ts;
+    MaxTemperature = max_temp_c;
+    DegreeMinutes  = degree_minutes;
+    Status         = exc_status;
+    Disposition    = disposition;
+    CreatedBy      = created_by;
+    CreatedAt      = created_at;
+    ChangedBy      = changed_by;
+    ChangedAt      = changed_at;
+  }
+
+  field ( readonly ) ExcursionID;
+
+}
