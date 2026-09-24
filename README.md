@@ -2,7 +2,7 @@
 
 A sample SAP application that tracks cold-chain temperature excursions and evaluates their impact on product shelf life.
 
-Built using modern ABAP, RAP, CDS, ABAP Unit, and Clean Core principles on SAP BTP ABAP Environment.
+Built using modern ABAP Cloud development practices including RAP, CDS View Entities, DCL, ABAP Unit, code pushdown, and Clean Core principles on SAP BTP ABAP Environment.
 
 ![Platform](https://img.shields.io/badge/Platform-SAP%20BTP%20ABAP%20Environment-0A6E4F)
 ![Model](https://img.shields.io/badge/Model-ABAP%20Cloud%20(RAP)-0A6E4F)
@@ -93,18 +93,24 @@ The process is fully auditable from initial detection through final disposition.
 
 ## Technical Highlights
 
-This project explores a number of modern SAP development concepts:
+This project explores modern SAP development concepts including:
 
-- Object-oriented ABAP
-- ABAP Unit testing
-- RAP business objects
-- CDS view entities
-- OData V4 services
-- ABAP SQL and code pushdown
-- Clean Core development
-- Factory and Strategy design patterns
-- Exception-based error handling
-- Domain-driven business logic
+- ABAP Cloud Development
+- ABAP RESTful Application Programming Model (RAP)
+- RAP Behavior Definitions
+- CDS View Entities
+- CDS Associations
+- Projection Views
+- Analytical CDS Views
+- Parameterized CDS Views
+- CDS Access Controls (DCL)
+- ABAP Unit Testing
+- Clean Core Development
+- Factory Pattern
+- Strategy Pattern
+- Exception-Based Error Handling
+- Code Pushdown
+- Domain-Driven Design
 
 ---
 
@@ -120,27 +126,91 @@ Implemented:
 - `ZDT_CC_ZONE` – Refrigerated zone master data
 - `ZDT_CC_PRODRULE` – Shelf-life calculation rules
 
-### Business Logic
+### Core Business Logic
 
 Implemented:
 
 - `ZCX_CC_ERROR`
+- `ZCL_CC_IMPORT`
 - `ZCL_CC_EXCURSION_DETECTOR`
-- ABAP Unit tests
+- `ZIF_CC_SHELFLIFE_MODEL`
+- `ZCL_CC_SL_MODEL_LINEAR`
+- `ZCL_CC_MODEL_FACTORY`
+
+### Quality
+
+Implemented:
+
+- ABAP Unit test suite
+- Exception-based validation
+- ABAP Doc documentation
+
+### CDS Interface Views
+
+Implemented:
+
+- `ZI_CC_EXCURSION`
+- `ZI_CC_ZONE`
+- `ZI_CC_EXC_BATCH`
+
+### CDS Associations
+
+Implemented:
+
+- `_Zone` association
+- `_Batch` association
+
+### CDS Projection Views
+
+Implemented:
+
+- `ZC_CC_EXCURSION`
+- `ZC_CC_EXC_BATCH`
+
+### Analytics
+
+Implemented:
+
+- `ZI_CC_EXCURSION_KPI`
+- `ZI_CC_TEMP_TREND`
+- `ZI_CC_TEMP_TREND_KPI`
+
+Features demonstrated:
+
+- Aggregations
+- COUNT()
+- AVG()
+- MAX()
+- GROUP BY
+- Input Parameters
+- Code Pushdown
+
+### Security
+
+Implemented:
+
+- DCL Role
+- CDS Access Control
+
+### RAP Foundation
+
+Implemented:
+
+- `ZI_CC_EXCURSION` Behavior Definition
+- `ZBP_I_CC_EXCURSION` Behavior Pool
 
 In Progress:
 
-- `ZIF_CC_SHELFLIFE_MODEL`
-- `ZCL_CC_SL_MODEL_LINEAR`
-- `ZCL_CC_SL_MODEL_Q10`
-- `ZCL_CC_MODEL_FACTORY`
+- Projection Behavior Definitions
+- Service Definition
+- Service Binding
 
 Planned:
 
-- RAP Business Object
-- CDS Analytics Layer
-- OData Service Layer
-- KPI Reporting
+- RAP Actions
+- RAP Determinations
+- RAP Validations
+- Fiori Elements Preview
 
 ---
 
@@ -180,24 +250,64 @@ src/
 
 ## Roadmap
 
-### Completed
+### ✅ Completed
+
+#### Core Engine
 
 - Data model
 - Exception framework
+- CSV import engine
 - Excursion detection engine
-- ABAP Unit testing foundation
+- Shelf-life calculation framework
+- Factory pattern
+- ABAP Unit testing
 
-### In Progress
+#### CDS Layer
 
-- Shelf-life calculation models
-- Factory pattern implementation
+- Interface CDS Views
+- CDS Associations
+- Projection Views
+- Quantity and Unit Semantics
 
-### Planned
+#### Analytics Layer
 
-- CDS analytics
-- RAP business object
-- OData services
-- KPI dashboards
+- Excursion KPI reporting
+- Temperature trend views
+- Parameterized CDS views
+- Code pushdown examples
+
+#### Security Layer
+
+- CDS Access Control (DCL)
+
+### 🔄 In Progress
+
+#### RAP Foundation
+
+- Behavior Definition
+- Behavior Pool
+
+### ⏳ Planned
+
+#### RAP Application Layer
+
+- Projection Behavior Definitions
+- Service Definition
+- Service Binding
+- OData V4 Exposure
+- Fiori Elements Preview
+
+#### Advanced RAP
+
+- Actions
+- Determinations
+- Validations
+- Draft Handling
+
+#### Reporting
+
+- Additional KPI dashboards
+- Operational analytics
 
 ---
 
