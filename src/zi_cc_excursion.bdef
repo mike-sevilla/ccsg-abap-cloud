@@ -3,10 +3,22 @@ managed implementation in class zbp_i_cc_excursion unique;
 strict ( 2 );
 
 define behavior for ZI_CC_EXCURSION
-persistent table zdt_cc_exc_hdr
-lock master
-authorization master ( instance )
+  alias Excursion
+  persistent table zdt_cc_exc_hdr
+  lock master
+  authorization master (global)
+  etag master ChangedAt
 {
+  create;
+  update;
+  delete;
+
+  field ( readonly )
+    ExcursionID,
+    CreatedBy,
+    CreatedAt,
+    ChangedBy,
+    ChangedAt;
 
   mapping for zdt_cc_exc_hdr
   {
@@ -24,7 +36,4 @@ authorization master ( instance )
     ChangedBy      = changed_by;
     ChangedAt      = changed_at;
   }
-
-  field ( readonly ) ExcursionID;
-
 }
