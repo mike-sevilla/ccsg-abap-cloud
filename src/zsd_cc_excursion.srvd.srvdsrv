@@ -1,0 +1,4 @@
+@EndUserText.label: 'CCSG Service'
+define service ZSD_CC_EXCURSION {
+  expose ZC_CC_EXCURSION as Excursion;
+}
